@@ -1,0 +1,20 @@
+{
+  "name": "navigator",
+  "version": "0.0.1",
+  "author": "bodziowagh",
+  "description": "A path-less router, based on a idea of a stack",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bodziowagh/navigator.git"
+  },
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.2.2"
+  },
+  "scripts": {
+    "build": "webpack",
+    "lint": "tslint '**/*.ts'",
+    "clean": "rm -rf ./dist && rm -rf node_modules"
+  }
+}
