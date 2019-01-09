@@ -2,6 +2,12 @@ import Step from "./step";
 
 export default class Navigator {
 
+  private static instance: Navigator;
+
+  private stack: Step[] = [];
+
+  private constructor() { }
+
   public static getInstance() {
     if (!Navigator.instance) {
       Navigator.instance = new Navigator();
@@ -10,7 +16,19 @@ export default class Navigator {
     return Navigator.instance;
   }
 
-  private static instance: Navigator;
+  public pushStep(step: Step) {
+    this.stack.push(step);
+
+	return this;
+  }
+
+  public show() {
+    return !!this.stack.length && this.stack[this.stack.length - 1].show();
+  }
+
+  public goBack() {
+	  this.stack.pop();
+  }
 }
 
 interface NavigatorInjectedProps {
