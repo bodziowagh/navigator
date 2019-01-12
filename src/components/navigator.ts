@@ -7,7 +7,7 @@ export default class Navigator {
 	// Returns, or creates if not present, the singleton's instance
 	public static getInstance() {
     if (!Navigator.instance) {
-      Navigator.instance = new Navigator();
+        Navigator.instance = new Navigator();
     }
 
     return Navigator.instance;
@@ -24,12 +24,12 @@ export default class Navigator {
 
 	// Returns content of the most recent step
   public show() {
-    return !!this.stack.length && this.stack[this.stack.length - 1].show();
+      return !!this.stack.length && this.stack[this.stack.length - 1].show();
   }
 
 	// Pushes the next step to the stack
   public go(step: Step) {
-    this.stack.push(step);
+      this.stack.push(step);
   }
 
 	// Replaces the most recent step
@@ -40,21 +40,21 @@ export default class Navigator {
 
 	// Returns if there are any steps on the stack to go back to
   public canGoBack() {
-    return this.stack.length > 0;
+      return this.stack.length > 0;
   }
 
 	// Removes the most recent step from the stack
   public goBack() {
-    this.stack.pop();
+      this.stack.pop();
   }
 }
 
 interface NavigatorInjectedProps {
-  navigator: Navigator;
+    navigator: Navigator;
 }
 
 export function withNavigator<T, P>(component: (props: T) => P): (props: NavigatorInjectedProps & T) => P {
-  const navigator = Navigator.getInstance();
+    const navigator = Navigator.getInstance();
 
-  return (props) => component({ navigator, ...props });
+    return (props) => component({ navigator, ...props });
 }
